@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Crypto Withdraw Mobile Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовое задание: Верстка мобильной страницы вывода средств.
 
-Currently, two official plugins are available:
+## Стек технологий
+* **React + TypeScript**
+* **MUI (Material UI)** — основная библиотека компонентов.
+* **Vite** — сборщик проекта.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Особенности реализации (согласно критериям ТЗ)
 
-## React Compiler
+1. **Глобальная Темизация**: 
+   - Максимальное количество параметров (цвета, шрифты `SF Pro Text`, скругления `12px/16px`, стили полей ввода) вынесено в тему MUI (`src/theme.ts`).
+   - Минимизировано использование инлайновых стилей (`sx`), чтобы обеспечить централизованное управление дизайном.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Компонентная архитектура**:
+   - Страница декомпозирована на логические блоки: `BankCard`, `VolumeInput`, `MethodToggle`, `RequisitesForm` и другие.
+   - Компоненты являются презентационными (принимают данные через props), что обеспечивает их переиспользование.
 
-## Expanding the ESLint configuration
+3. **Адаптивность**:
+   - Интерфейс полностью адаптирован под разрешения экрана от **320px до 600px**.
+   - Использована гибкая верстка (Flexbox/Stack) для корректного отображения на узких экранах (iPhone SE и аналоги).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+4. **Визуальное соответствие**:
+   - Реализация выполнена с упором на "глазомер": подобраны оригинальные цвета, веса шрифтов и отступы согласно предоставленному макету.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Запуск проекта
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Для запуска проекта на локальной машине:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/milasuguru/crypto-withdraw-page.git
